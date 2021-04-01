@@ -10,7 +10,7 @@ public class MyClass implements AM {
         long s = System.nanoTime();
         List<Integer> ans = new ArrayList<>();
         for (int i = node[0]; i < node[1]; i++) {
-            if (isPal(i)) {
+            if (isPrime(i)) {
                 ans.add(i);
             }
         }
@@ -23,8 +23,12 @@ public class MyClass implements AM {
         info.parent.write(a);
     }
 
-    private boolean isPal(int n) {
-        String s = String.valueOf(n);
-        return s.equals(new StringBuilder(s).reverse().toString());
+    private boolean isPrime(int n) {
+        for(int i = 0; i*i <= n; i++) {
+            if (n%i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }
